@@ -1,27 +1,29 @@
 {
   "name": "awesome reels blocker",
-  "description": "yeah this extension will definitely make you a 10x engineer bro trust",
+  "description": "blocks reels and explore on instagram",
   "version": "1.0",
   "manifest_version": 3,
   "action": {
     "default_popup": "popup.html"
   },
+  "permissions": ["storage"],
   "content_scripts": [
     {
       "matches": ["*://*.instagram.com/*"],
-      "js": ["scripts/remover.js"],
+      "js": ["scripts/utils.js", "scripts/content.js"],
       "run_at": "document_start"
     }
-  ], "web_accessible_resources": [
+  ],
+  "web_accessible_resources": [
     {
       "resources": ["public/images/catdunking.jpeg"],
-      "matches": ["*://*/*"]
+      "matches": ["*://*.instagram.com/*"]
     }
   ],
   "icons": {
-		"16": "public/icons/icon_16.png",
-		"32": "public/icons/icon_32.png",
-		"48": "public/icons/icon_48.png",
-		"128": "public/icons/icon_128.png"
-	}
+    "16": "public/icons/icon_16.png",
+    "32": "public/icons/icon_32.png",
+    "48": "public/icons/icon_48.png",
+    "128": "public/icons/icon_128.png"
+  }
 }

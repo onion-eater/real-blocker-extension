@@ -1,0 +1,141 @@
+:root {
+  --bg: #0f1115;      /* background */
+  --fg: #e7eaf0;      /* primary text */
+  --muted: #8b93a6;   /* secondary text */
+  --track: #2a2f3a;   /* background of switch */
+  --on: #4ade80;      /* on color for switch*/
+  --off: #475066;     /* off color for switch */
+  --radius: 14px;       /* border radius */
+  --h: 26px;            /* toggle height */
+  --w: 46px;            /* toggle width  */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  min-width: 280px;
+  padding: 14px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.list {
+  display: grid;
+  gap: 6px;
+  margin: 6px 0 2px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 8px 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+}
+
+.row:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--fg);
+  cursor: pointer;
+}
+
+.desc {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.toggle {
+  position: relative;
+  width: var(--w);
+  height: var(--h);
+  display: inline-block;
+}
+
+.toggle input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+  outline: none;
+  position: absolute;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: var(--track);
+  border-radius: var(--h);
+  transition: background 0.25s ease;
+  cursor: pointer;
+}
+
+.slider::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: calc(var(--h) - 6px);
+  height: calc(var(--h) - 6px);
+  border-radius: 999px;
+  background: var(--off);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.toggle input:checked + .slider {
+  background: color-mix(in oklab, var(--on) 35%, var(--track));
+}
+
+.toggle input:checked + .slider::after {
+  transform: translateX(calc(var(--w) - var(--h)));
+  background: var(--on);
+}
+
+.footer {
+  padding-top: 8px;
+}
+
+a, a:link, a:visited {
+  color: white;
+}
+
+a:hover {
+  color: #ccc;
+}
+
+

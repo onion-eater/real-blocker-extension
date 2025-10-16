@@ -1,13 +1,49 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <script src="scripts/popup.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="popup.css" />
   </head>
+
   <body>
-    <img src="public/icons/icon_128.png" />
-    <div style="display:flex; flex-direction:column;">
-      <!-- <label><input type="checkbox" id="reels"> Block Reels</label>
-      <label><input type="checkbox" id="explore"> Block Explore</label> -->
-      <h1> hi dood </h1>
+    <div class="header">
+      <div class="title">awesome reels blocker</div>
     </div>
+
+    <div class="list">
+
+      <!-- Reels -->
+      <label class="row">
+        <span>Hide Reels</span>
+        <div class="toggle">
+          <input id="reels" data-key="reels" type="checkbox" />
+          <span class="slider"></span>
+        </div>
+      </label>
+
+      <!-- Explore -->
+      <label class="row">
+        <span>Hide Explore</span>
+        <div class="toggle">
+          <input id="explore" data-key="explore" type="checkbox" />
+          <span class="slider"></span>
+        </div>
+      </label>
+
+      <!-- Stories -->
+      <!-- <label class="row">
+        <span>Stories</span>
+        <div class="toggle">
+          <input id="stories" data-key="stories" type="checkbox" />
+          <span class="slider"></span>
+        </div>
+      </label> -->
+    </div>
+    <div class="footer">
+      Made by
+      <a href="https://nolanjiang.com" target="_blank">Nolan Jiang</a>
+    </div>
+    <script src="scripts/popup.js"></script>
   </body>
 </html>
