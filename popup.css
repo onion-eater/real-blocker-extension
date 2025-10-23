@@ -1,5 +1,5 @@
 :root {
-  --bg: #0f1115;      /* background */
+  --bg: #23252a;      /* background */
   --fg: #e7eaf0;      /* primary text */
   --muted: #8b93a6;   /* secondary text */
   --track: #2a2f3a;   /* background of switch */
@@ -56,12 +56,12 @@ body {
   align-items: center;
   padding: 8px 8px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.05);
   cursor: pointer;
 }
 
 .row:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .label {

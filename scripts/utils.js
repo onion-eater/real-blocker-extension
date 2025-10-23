@@ -16,16 +16,27 @@ function update() {
   const targets = [];
 
   chrome.storage.sync.get((res) => {
-    if (isBlockedPage(res)) {
+    if (isBlockedPage(res) === 1) {
       console.log("blocked page, replacing");
       replacePage();
       return;
     }
+    
+    if (isBlockedPage(res) === 2) {
+      console.log("blocked page, redirecting to inbox");
+      window.location.href = "/direct/inbox/";
+      return;
+    }
+
     console.log("Settings", res);
     if (res.reels ?? false)
       targets.push("div:has(> span > div > a[href^='/reels'])");
     if (res.explore ?? false)
       targets.push("div:has(> span > div > a[href^='/explore'])");
+    if (res.stories ?? false)
+      targets.push("div[data-pagelet^='story_tray']");
+    if (res.onlyMessages ?? false)
+      targets.push("div:has(> div > div > div > div > div > div > span > div > a[href^='/explore'])");
 
     style.innerText =
       targets.length > 0
@@ -82,5 +93,8 @@ function replacePage() {
 // (to then replace with swag cat)
 function isBlockedPage(res) {
   const p = window.location.pathname;
-  return (p.startsWith("/reels") && res.reels) || ((p === "/explore" || p === "/explore/") && res.explore);
+  if ((p.startsWith("/reels") && res.reels) || ((p === "/explore" || p === "/explore/") && res.explore))
+    return 1; // replace page
+  if (!(p.startsWith("/direct/inbox")) && res.onlyMessages)
+    return 2; // redirect
 }

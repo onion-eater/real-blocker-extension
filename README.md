@@ -10,8 +10,9 @@
 - https://github.com/aymyo/antigram-extension
 
 ## TO-DO:
-- also remove stories, posts, etc.
+- also remove ~~stories~~, posts, etc.
   - could replace posts with pictures of cats or something
+- ~~only messages option~~
 - ~~make options to toggle on/off~~
 - ~~better ui for popup~~
 - same thing for yt, tiktok, other socials
