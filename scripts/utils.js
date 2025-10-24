@@ -21,7 +21,7 @@ function update() {
       replacePage();
       return;
     }
-    
+
     if (isBlockedPage(res) === 2) {
       console.log("blocked page, redirecting to inbox");
       window.location.href = "/direct/inbox/";
@@ -37,6 +37,8 @@ function update() {
       targets.push("div[data-pagelet^='story_tray']");
     if (res.onlyMessages ?? false)
       targets.push("div:has(> div > div > div > div > div > div > span > div > a[href^='/explore'])");
+    if (res.posts ?? false)
+      targets.push("div:has(> div > div > article)");
 
     style.innerText =
       targets.length > 0

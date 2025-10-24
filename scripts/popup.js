@@ -5,7 +5,8 @@ async function init() {
     reels: true,
     explore: true,
     stories: true,
-    onlyMessages: false
+    onlyMessages: false,
+    posts: true
   };
 
   const keys = Object.keys(defaults);
