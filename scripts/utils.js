@@ -37,7 +37,7 @@ function update() {
       targets.push("div[data-pagelet^='story_tray']");
     if (res.onlyMessages ?? false)
       targets.push("div:has(> div > div > div > div > div > div > span > div > a[href^='/explore'])");
-    if (res.posts ?? false)
+    else if (res.posts ?? false)
       targets.push("div:has(> div > div > article)");
 
     style.innerText =
@@ -97,6 +97,6 @@ function isBlockedPage(res) {
   const p = window.location.pathname;
   if ((p.startsWith("/reels") && res.reels) || ((p === "/explore" || p === "/explore/") && res.explore))
     return 1; // replace page
-  if (!(p.startsWith("/direct/inbox")) && res.onlyMessages)
+  if (!(p.startsWith("/direct")) && res.onlyMessages)
     return 2; // redirect
 }
