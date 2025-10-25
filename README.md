@@ -1,4 +1,4 @@
-# awesome reels blocker
+# distraction blocker extension
 
 ## Stack
 - JS
@@ -15,5 +15,6 @@
 - ~~only messages option~~
 - ~~make options to toggle on/off~~
 - ~~better ui for popup~~
+- make ui more compact (add separate pages for stuff?)
 - same thing for yt, tiktok, other socials
 - port to firefox
