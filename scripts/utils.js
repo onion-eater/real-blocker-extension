@@ -95,8 +95,8 @@ function replacePage() {
 // (to then replace with swag cat)
 function isBlockedPage(res) {
   const p = window.location.pathname;
-  if ((p.startsWith("/reels") && res.reels) || ((p === "/explore" || p === "/explore/") && res.explore))
-    return 1; // replace page
   if (!(p.startsWith("/direct")) && res.onlyMessages)
     return 2; // redirect
+  if ((p.startsWith("/reels") && res.reels) || ((p === "/explore" || p === "/explore/") && res.explore))
+    return 1; // replace page
 }
